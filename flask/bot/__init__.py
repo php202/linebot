@@ -1,3 +1,6 @@
+# git remote add origin https://github.com/php202/linebot.git
+# git branch -M main
+# git push -u origin main
 import os
 from flask import Flask, abort, request
 from linebot import LineBotApi, WebhookHandler
