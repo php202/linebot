@@ -42,4 +42,4 @@ def findimg(event):
     line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=random_img_url,preview_image_url=random_img_url))
 
 def push(event):
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+    line_bot_api.push_message(to, TextSendMessage(text='Good Morning!'))
