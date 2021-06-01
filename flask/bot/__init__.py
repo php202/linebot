@@ -3,8 +3,9 @@
 # git push -u origin main
 # http://34.134.77.7/
 
-# sudo git pull
-# sudo docker-compose up --build
+# sudo su
+# git pull
+# docker-compose up --build
 import os
 from flask import Flask, abort, request, reder_template
 from linebot import LineBotApi, WebhookHandler
