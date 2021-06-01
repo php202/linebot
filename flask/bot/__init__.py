@@ -3,14 +3,14 @@
 # git push -u origin main
 # http://34.134.77.7/
 
-# git pull
-# docker-compose up --build
+# sudo git pull
+# sudo docker-compose up --build
 import os
 from flask import Flask, abort, request, reder_template
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-import linefunction
+from line import linefunction
 
 def create_app():
 
@@ -35,10 +35,10 @@ def create_app():
     def handle_message(event):
         if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
         try:
-        linefunction.findimg()
+            linefunction.findimg()
         except:
-        print("找不到圖片")
-        linefunction.echo(event)
+            print("找不到圖片")
+            linefunction.echo(event)
 
         
     return app
