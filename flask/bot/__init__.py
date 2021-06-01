@@ -35,11 +35,11 @@ def create_app():
     @handler.add(MessageEvent, message=TextMessage)
     def handle_message(event):
         if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
-        try:
-            linefunction.findimg()
-        except:
-            print("找不到圖片")
-            linefunction.echo(event)
+            try:
+                linefunction.findimg()
+            except:
+                print("找不到圖片")
+                linefunction.echo(event)
 
         
     return app
