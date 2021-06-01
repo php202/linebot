@@ -14,19 +14,26 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from line import linefunction
+import configparser
 
 app = Flask(__name__)
 
 # LINE 聊天機器人的基本資料
-line_bot_api = LineBotApi('聊天機器人的 Chennel access token')
-handler = WebhookHandler('聊天機器人的 Channel secret')
+config = configparser.ConfigParser()
+config.read('config.ini')
 
+line_bot_api = LineBotApi(config.get('line-bot', 'CHANNEL_ACCESS_TOKEN'))
+handler = WebhookHandler(config.get('line-bot', 'CHANNEL_SECRET'))
 
 #首頁去處
 @app.route("/")
 def home():
     # linefunction.push(event)
     return render_template("home.html")
+
+@app.route("/.well-known/pki-validation/")
+def ssl():
+    return render_template("F2C2D096E82E065A74018CCFC70552DE.txt")
 
 #line驗證
 @app.route("/callback", methods=["GET", "POST"])
