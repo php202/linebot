@@ -10,3 +10,13 @@ services:
       - TZ=Asia/Taipei
 
   
+      nginx:
+        build: ./nginx
+        container_name: template_nginx
+        # restart: always
+        ports:
+          - "80:80"
+          - "443:443"
+    
+        depends_on:
+          - flask
