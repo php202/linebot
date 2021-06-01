@@ -7,7 +7,7 @@
 # git pull
 # docker-compose up --build
 import os
-from flask import Flask, abort, request, reder_template
+from flask import Flask, abort, request, render_template
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
